@@ -1,8 +1,19 @@
 \input{preamble.tex}
 
+\usepackage{subfig}
+
+\usepackage{tikz, pgfplots}
+\usepackage{tkz-euclide}
+\usepackage[american, cuteinductors]{circuitikz}
+\usepackage{schemabloc}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{external}
+\tikzexternalize
+
+\usepackage{minted}
+
 \title{How To LaTeX \\ \normalsize \textnormal{1강 -- LaTeX 기초}}
 \author{201811206 황인탁}
-
 
 \begin{document}
 \maketitle
@@ -20,11 +31,163 @@
 \begin{frame}
     \frametitle{강의 구성}
 
+    한 강의당 1시간--1시간 30분 정도의 분량으로 진행될 예정이다. 각 강의의 주제는 다음과 같다.
+
     \begin{description}
         \item[1강] LaTeX 기초
         \item[2강] 수식, 그림, 그리고 표
         \item[3강] LaTeX 프로그래밍
     \end{description}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{TeX이 뭔가요?}
+
+    TeX, LaTeX, pdfTeX... 어려운 말들이 너무 많다!
+
+    \begin{description}
+        \item[TeX] Donald Knuth가 1978년에 만든 조판 시스템(언어 + 컴파일러).
+        \item[LaTeX] Leslie Lamport가 1984년에 만든 조판 시스템. TeX 언어로 작성되어 있으며, TeX과도 당연히 호환된다.
+        \item[pdfTeX, XeTeX, LuaTeX] TeX 언어의 구현체들.
+    \end{description}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{TeX을 왜 쓰나요??}
+
+    TeX의 장점...
+    \begin{itemize}
+        \item 수식이 포함된 문서를 작성하는 데 최고다.
+        \item 문서의 관리가 편하다.
+        \item 내용과 스타일을 분리할 수 있다.
+        \item 간지난다.
+    \end{itemize}
+
+    그럼에도 불구하고, TeX의 단점...
+    \begin{itemize}
+        \item 배우기 어렵다.
+        \item 안되도 왜 안되는지 모른다. / 되도 왜 되는지 모른다.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{TeX으로 무엇을 할 수 있나요?}
+
+    TikZ, pgfplots를 이용한 그림과 플로팅...
+
+    \begin{figure}
+        \centering
+        \subfloat{
+            \begin{tikzpicture}[scale=0.7]
+                \tkzDefPoint(0,1){A}
+                \tkzDefPoint(7,0){B}
+                \tkzDefPoint(5,4){C}
+                \tkzDrawPolygon(A,B,C)
+
+                \tkzDefCircle[in](A,B,C)
+                \tkzGetPoint{O}
+                \tkzGetLength{rIN}
+                \tkzDefCircle[R](O, \rIN)
+                \tkzGetPoint{a}
+                \tkzDrawCircle(O, a)
+
+                \tkzDefPoint(5.1, 1.8){P}
+                \tkzDrawSegments(P,A P,B P,C)
+
+                \tkzDefPointBy[projection=onto A--B](P)
+                \tkzGetPoint{H}
+                \tkzDrawSegment[dashed](P,H)
+
+                \tkzLabelSegment[above left](A,C){$a_1$}
+                \tkzLabelSegment[below](A,B){$a_2$}
+                \tkzLabelSegment[right](B,C){$a_3$}
+
+                \tkzMarkRightAngle(P,H,A)
+                \tkzDrawPoints(A, B, C, P, H)
+                \tkzLabelSegment[left](P,H){$h_k$}
+            \end{tikzpicture}
+        }
+        \qquad
+        \subfloat{
+            \begin{tikzpicture}[scale=0.7]
+                \begin{axis}[
+                        colormap/cool,
+                    ]
+                    \addplot3[
+                        mesh,
+                        samples=50,
+                        domain=-8:8,
+                    ]
+                    {sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
+                \end{axis}
+            \end{tikzpicture}
+        }
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{TeX으로 무엇을 할 수 있나요?}
+
+    다이어그램...
+
+    \begin{figure}
+        \centering
+        \begin{circuitikz}
+            \draw (0,0) node[ground, rotate=270]{} to [sV, v<=$v_{in}$]++(2,0) to [R=$R_E$]++(2,0) coordinate(Re) to [cI, l=$g_mv_\pi$, invert]++(3,0) coordinate(Rc) to [R=$R_C$]++(2,0) node[ground, rotate=90]{};
+            \draw (Re) to [R, v<=$v_\pi$, l=$r_\pi$]++(0, -2) to [R=$R_B$]++(0,-2) node[ground]{};
+            \draw (Rc) to [short, -o]++(0,-2) node[below]{$v_{out}$};
+        \end{circuitikz}
+
+    \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{TeX으로 무엇을 할 수 있나요?}
+
+    Syntax Highlighting...
+
+    \begin{minted}{go}
+        package main
+
+        import "fmt"
+
+        func main() {
+            fmt.Println("Hello, World!")
+        }
+    \end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{LaTeX 문서의 구성}
+
+따라서 한 번 쳐보자.
+
+\begin{minted}{latex}
+        \documentclass{article}
+
+        \usepackage{kotex}
+
+        \begin{document}
+            Hello, World! 안녕, 세계!
+        \end{document}
+    \end{minted}
+
+\mintinline{latex}{\begin{document}} 이전까지의 부분은 \textbf{preamble}이라고 부른다.
+\end{frame}
+
+\begin{frame}
+    \frametitle{preamble}
+
+    preamble에는 보통 다음의 명령어들이 온다.
+
+    \begin{itemize}
+        \item \mintinline{latex}{\documentclass}: 이 문서의 클래스를 결정한다. 클래스에 따라서 문서의 모양과 형식이 달라진다. 유명한 클래스로는 article, book, beamer, 그리고 앞으로 사용할 oblivoir 등이 있다.
+        \item \mintinline{latex}{\usepackage}: 사용할 패키지들을 임포트한다. 텍에서의 패키지는 다른 언어의 패키지들과 유사하다.
+        \item 기타 매크로 및 설정 (자세한 것은 3강에서 다룬다.)
+    \end{itemize}
 
 \end{frame}
 \end{document}
