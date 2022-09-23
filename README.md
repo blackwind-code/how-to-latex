@@ -20,5 +20,5 @@
 - LaTeX 매크로의 문법과 응용
 
 ## 참고자료
-- l2short-ko
-- SNU LaTeX Seminar ([Link](https://willkwon.gitbook.io/snu-latex-lecture/lecture-5/undefined]))
+- lshort-ko
+- SNU LaTeX Seminar ([Link](https://willkwon.gitbook.io/snu-latex-lecture/]))

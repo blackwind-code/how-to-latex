@@ -68,7 +68,7 @@
     그럼에도 불구하고, TeX의 단점...
     \begin{itemize}
         \item 배우기 어렵다.
-        \item 안되도 왜 안되는지 모른다. / 되도 왜 되는지 모른다.
+        \item 안돼도 왜 안되는지 모른다. / 돼도 왜 되는지 모른다.
     \end{itemize}
 \end{frame}
 
@@ -171,7 +171,8 @@
         \usepackage{kotex}
 
         \begin{document}
-            Hello, World! 안녕, 세계!
+            Hello, World! 안녕, 세계! $a^2 + b^2 = c^2$
+            \[ E = mc^2 \]
         \end{document}
     \end{minted}
 
@@ -190,4 +191,171 @@
     \end{itemize}
 
 \end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{LaTeX 글 쓰기}
+
+    LaTeX에서는 이어지는 화이트스페이스를 전부 하나의 빈 칸으로 대체한다.
+
+    문단을 나눌 때는 반드시 한 줄을 비워놓는다. 화이트스페이스와 마찬가지로, 여러 줄을 비워놓아도 한 줄을 비운 것으로 인식한다.
+
+    \begin{columns}[c]
+        \begin{column}{0.4\textwidth}
+            \begin{minted}[autogobble, showspaces]{latex}
+                So,  so you think
+                you can   tell
+
+                Heaven  from hell?
+
+
+                Blue skies from  pain?
+            \end{minted}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            So,  so you think
+            you can   tell
+
+            Heaven  from hell?
+
+
+            Blue skies from  pain?
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{LaTeX 글 쓰기}
+
+    다음의 문자들은 특수한 용도가 있으므로 일반적으로 입력할 수 없다.
+
+    \begin{minted}{text}
+        # $ % ^ & _ { } ~ \
+    \end{minted}
+
+    입력하고 싶다면, 앞에 \mintinline{text}{\}를 붙이면 된다. (\mintinline{text}{\#, \$, ...})
+
+    \textbackslash는 \mintinline{text}{\textbackslash}로 입력한다.
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{LaTeX의 명령어}
+
+    LaTeX은 프로그래밍 언어이므로, 명령어의 개념이 있다. LaTeX의 명령어는 command와 environment로 분류할 수 있다.
+
+    command는 다음과 같은 형식을 가진다.
+
+    \begin{minted}{latex}
+        \command[option1, option2, ...]{arg1}{arg2}...
+    \end{minted}
+
+    argument가 하나일 경우, 대괄호를 생략할 수 있다. 이 경우 토큰을 하나만 먹는다.
+
+    \begin{center}
+        \begin{tblr}{ll}
+            \mintinline{latex}{\sqrt{2}} & $\sqrt{2}$ \\ \hline
+            \mintinline{latex}{\sqrt 2 } & $\sqrt 2$  \\ \hline
+            \mintinline{latex}{\sqrt 23} & $\sqrt 23$
+        \end{tblr}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{LaTeX의 명령어}
+
+    environment는 다음과 같은 형식을 가진다.
+
+    \begin{minted}{latex}
+        \begin{environment}
+            ...
+        \end{environment}
+    \end{minted}
+
+    environment는 \mintinline{latex}{\begin}과 \mintinline{latex}{\end}로 둘러쌓인 구간에서 작동한다.
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{LaTeX의 명령어}
+
+    다음을 쳐 보자.
+
+    \begin{minted}{latex}
+        \begin{center}
+            \textbf{Centered Text}: $\sqrt{2}$, $\sqrt[3]{2}$
+        \end{center}
+    \end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{유용한 명령어}
+
+    다음과 같이 텍스트에 효과를 넣을 수 있다.
+
+    \begin{center}
+        \begin{tblr}{ll}
+            \mintinline{latex}{\textbf{text}} & \textbf{text} \\ \hline
+            \mintinline{latex}{\textit{text}} & \textit{text} \\ \hline
+            \mintinline{latex}{\textsl{text}} & \textsl{text} \\ \hline
+            \mintinline{latex}{\texttt{text}} & \texttt{text} \\ \hline
+        \end{tblr}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{유용한 명령어}
+
+    다음과 같이 텍스트의 크기를 바꿀 수 있다.
+    \begin{center}
+        \begin{tblr}{ll}
+            \mintinline{latex}{\tiny text}       & \tiny text       \\ \hline
+            \mintinline{latex}{\small text}      & \small text      \\ \hline
+            \mintinline{latex}{\normalsize text} & \normalsize text \\ \hline
+            \mintinline{latex}{\Large text}      & \Large text      \\ \hline
+            \mintinline{latex}{\Huge text}       & \Huge text       \\ \hline
+        \end{tblr}
+    \end{center}
+    \textbf{이 효과는 문서 전체에 적용된다.} 텍스트를 원래 크기로 되돌리려면 다시 \mintinline{latex}{\normalsize} 명령어를 사용하여야 한다.
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{유용한 명령어}
+
+    정렬을 변경하려면, \mintinline{latex}{flushleft, flushright, center} 환경을 사용한다.
+
+
+    \begin{columns}[c]
+        \begin{column}{0.4\textwidth}
+            \begin{minted}[autogobble]{latex}
+                \begin{flushleft}
+                    left aligned
+                \end{flushleft}
+                \begin{center}
+                    center aligned
+                \end{center}
+                \begin{flushright}
+                    right aligned
+                \end{flushright}
+            \end{minted}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \begin{flushleft}
+                left aligned
+            \end{flushleft}
+            \begin{center}
+                center aligned
+            \end{center}
+            \begin{flushright}
+                right aligned
+            \end{flushright}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
 \end{document}
