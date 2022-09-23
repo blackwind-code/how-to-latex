@@ -12,7 +12,7 @@
 
 \usepackage{minted}
 
-\title{How To LaTeX \\ \normalsize \textnormal{1강 -- LaTeX 기초}}
+\title{How To \latex{} \\ \normalsize \textnormal{1강 -- \latex{} 기초}}
 \author{201811206 황인탁}
 
 \begin{document}
@@ -22,7 +22,7 @@
     \frametitle{강의의 목적}
 
     \begin{itemize}
-        \item TeX, LaTeX이 무엇인지 안다.
+        \item \tex{}, \latex{}이 무엇인지 안다.
         \item 텍으로 과제를 만들어서 제출할 수 있다.
     \end{itemize}
 
@@ -34,30 +34,30 @@
     한 강의당 1시간--1시간 30분 정도의 분량으로 진행될 예정이다. 각 강의의 주제는 다음과 같다.
 
     \begin{description}
-        \item[1강] LaTeX 기초
+        \item[1강] \latex{} 기초
         \item[2강] 수식, 그림, 그리고 표
-        \item[3강] LaTeX 프로그래밍
+        \item[3강] \latex{} 프로그래밍
     \end{description}
 
 \end{frame}
 
 \begin{frame}
-    \frametitle{TeX이 뭔가요?}
+    \frametitle{\tex{}이 뭔가요?}
 
-    TeX, LaTeX, pdfTeX... 어려운 말들이 너무 많다!
+    \tex{}, \latex{}, pdfTeX... 어려운 말들이 너무 많다!
 
     \begin{description}
-        \item[TeX] Donald Knuth가 1978년에 만든 조판 시스템(언어 + 컴파일러).
-        \item[LaTeX] Leslie Lamport가 1984년에 만든 조판 시스템. TeX 언어로 작성되어 있으며, TeX과도 당연히 호환된다.
-        \item[pdfTeX, XeTeX, LuaTeX] TeX 언어의 구현체들.
+        \item[\tex{}] Donald Knuth가 1978년에 만든 조판 시스템(언어 + 컴파일러).
+        \item[\latex{}] Leslie Lamport가 1984년에 만든 조판 시스템. \tex{} 언어로 작성되어 있으며, \tex{}과도 당연히 호환된다.
+        \item[pdfTeX, XeTeX, LuaTeX] \tex{} 언어의 구현체들.
     \end{description}
 
 \end{frame}
 
 \begin{frame}
-    \frametitle{TeX을 왜 쓰나요??}
+    \frametitle{\tex{}을 왜 쓰나요??}
 
-    TeX의 장점...
+    \tex{}의 장점...
     \begin{itemize}
         \item 수식이 포함된 문서를 작성하는 데 최고다.
         \item 문서의 관리가 편하다.
@@ -65,7 +65,7 @@
         \item 간지난다.
     \end{itemize}
 
-    그럼에도 불구하고, TeX의 단점...
+    그럼에도 불구하고, \tex{}의 단점...
     \begin{itemize}
         \item 배우기 어렵다.
         \item 안돼도 왜 안되는지 모른다. / 돼도 왜 되는지 모른다.
@@ -73,7 +73,7 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{TeX으로 무엇을 할 수 있나요?}
+    \frametitle{\tex{}으로 무엇을 할 수 있나요?}
 
     TikZ, pgfplots를 이용한 그림과 플로팅...
 
@@ -128,7 +128,7 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{TeX으로 무엇을 할 수 있나요?}
+    \frametitle{\tex{}으로 무엇을 할 수 있나요?}
 
     다이어그램...
 
@@ -144,7 +144,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{TeX으로 무엇을 할 수 있나요?}
+    \frametitle{\tex{}으로 무엇을 할 수 있나요?}
 
     Syntax Highlighting...
 
@@ -161,7 +161,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{LaTeX 문서의 구성}
+\frametitle{\latex{} 문서의 구성}
 
 따라서 한 번 쳐보자.
 
@@ -193,9 +193,9 @@
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{LaTeX 글 쓰기}
+    \frametitle{\latex{} 글 쓰기}
 
-    LaTeX에서는 이어지는 화이트스페이스를 전부 하나의 빈 칸으로 대체한다.
+    \latex{}에서는 이어지는 화이트스페이스를 전부 하나의 빈 칸으로 대체한다.
 
     문단을 나눌 때는 반드시 한 줄을 비워놓는다. 화이트스페이스와 마찬가지로, 여러 줄을 비워놓아도 한 줄을 비운 것으로 인식한다.
 
@@ -225,7 +225,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{LaTeX 글 쓰기}
+    \frametitle{\latex{} 글 쓰기}
 
     다음의 문자들은 특수한 용도가 있으므로 일반적으로 입력할 수 없다.
 
@@ -240,9 +240,42 @@
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{LaTeX의 명령어}
+    \frametitle{\latex{} 글 쓰기}
 
-    LaTeX은 프로그래밍 언어이므로, 명령어의 개념이 있다. LaTeX의 명령어는 command와 environment로 분류할 수 있다.
+    따옴표는 왼쪽 따옴표와 오른쪽 따옴표가 구분된다. 왼쪽은 \mintinline{text}{`}, 오른쪽은 \mintinline{text}{'}이다. 비교해보자.
+
+    \begin{center}
+        \begin{tblr}{cc}
+            \mintinline{text}{'Hello, World!'}   & 'Hello, World!'   \\ \hline
+            \mintinline{text}{`Hello, World!'}   & `Hello, World!'   \\ \hline
+            \mintinline{text}{``Hello, World!''} & ``Hello, World!'' \\
+        \end{tblr}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{\latex{} 글 쓰기}
+
+    문서 구조는 크게 다음처럼 나눌 수 있다.
+
+    \begin{itemize}
+        \item part
+        \item chapter
+        \item section
+        \item subsection
+        \item paragraph
+        \item subparagraph
+    \end{itemize}
+
+    보통 chapter, section, paragraph 정도만 본다.
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{\latex{}의 명령어}
+
+    \latex{}은 프로그래밍 언어이므로, 명령어의 개념이 있다. \latex{}의 명령어는 command와 environment로 분류할 수 있다.
 
     command는 다음과 같은 형식을 가진다.
 
@@ -263,7 +296,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{LaTeX의 명령어}
+    \frametitle{\latex{}의 명령어}
 
     environment는 다음과 같은 형식을 가진다.
 
@@ -278,7 +311,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{LaTeX의 명령어}
+    \frametitle{\latex{}의 명령어}
 
     다음을 쳐 보자.
 
@@ -300,7 +333,7 @@
             \mintinline{latex}{\textbf{text}} & \textbf{text} \\ \hline
             \mintinline{latex}{\textit{text}} & \textit{text} \\ \hline
             \mintinline{latex}{\textsl{text}} & \textsl{text} \\ \hline
-            \mintinline{latex}{\texttt{text}} & \texttt{text} \\ \hline
+            \mintinline{latex}{\texttt{text}} & \texttt{text} \\
         \end{tblr}
     \end{center}
 
@@ -316,10 +349,10 @@
             \mintinline{latex}{\small text}      & \small text      \\ \hline
             \mintinline{latex}{\normalsize text} & \normalsize text \\ \hline
             \mintinline{latex}{\Large text}      & \Large text      \\ \hline
-            \mintinline{latex}{\Huge text}       & \Huge text       \\ \hline
+            \mintinline{latex}{\Huge text}       & \Huge text       \\
         \end{tblr}
     \end{center}
-    \textbf{이 효과는 문서 전체에 적용된다.} 텍스트를 원래 크기로 되돌리려면 다시 \mintinline{latex}{\normalsize} 명령어를 사용하여야 한다.
+    \textbf{이 효과는 문서 전체에 적용된다.} 이것이 싫다면 다시 \mintinline{latex}{\normalsize} 명령어를 사용하거나, 대괄호로 묶거나, 아니면 enviornment 형태로 사용하자.
 
 \end{frame}
 
@@ -355,6 +388,121 @@
             \end{flushright}
         \end{column}
     \end{columns}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{유용한 명령어}
+
+    글을 나열하는 방법으로는 \mintinline{text}{itemize, enumerate, description} 환경이 있다.
+
+    \begin{columns}
+        \begin{column}{0.3\textwidth}
+            \begin{minted}[autogobble]{latex}
+                \begin{itemize}
+                    \item a
+                    \item b
+                \end{itemize}
+            \end{minted}
+
+            \begin{itemize}
+                \item a
+                \item b
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \begin{minted}[autogobble]{latex}
+                \begin{enumerate}
+                    \item a
+                    \item b
+                \end{enumerate}
+            \end{minted}
+
+            \begin{enumerate}
+                \item a
+                \item b
+            \end{enumerate}
+        \end{column}
+
+        \begin{column}{0.3\textwidth}
+            \begin{minted}[autogobble]{latex}
+                \begin{description}
+                    \item[k1] a
+                    \item[k2] b
+                \end{description}
+            \end{minted}
+
+            \begin{description}
+                \item[k1] a
+                \item[k2] b
+            \end{description}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{폰트 바꾸기}
+
+    폰트를 바꾸려면 \mintinline{text}{fontspec} 패키지를 로드한다. 이 패키지는 XeTeX과 LuaTeX에서만 사용할 수 있다.
+
+    \begin{minted}{latex}
+        \usepackage{fontspec}
+        \setmainfont{serif font}
+        \setsansfont{sans-serif font}
+        \setmonofont{mono font}
+    \end{minted}
+
+    oblivoir 클래스 혹은 koTeX을 사용 중이라면, 다음 명령어를 이용해 한글 폰트를 바꿀 수 있다.
+
+    \begin{minted}{latex}
+        \setmainhangulfont{serif font}
+        \setsanshangulfont{sans-serif font}
+        \setmonohangulfont{mono font}
+    \end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{용지 설정}
+
+    oblivoir 클래스의 경우, \mintinline{text}{fapapersize} 패키지를 이용한다.
+
+    \begin{minted}{latex}
+        \usepackage{fapapersize}
+        \usefapapersize{*,*,30mm,30mm,30mm,30mm}
+    \end{minted}
+
+    기타 클래스의 경우, \mintinline{text}{geometry} 패키지를 이용한다.
+\end{frame}
+
+\begin{frame}[c]
+
+    \begin{center}
+        백문이 불여일견, 직접 문서를 작성해보자!
+    \end{center}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{끝으로}
+
+    \tex의 세계는 방대하기 때문에, 모든 것을 다 외운다는 생각은 버려야 한다.
+
+    아래의 자료들과 구글을 활용해서, 그때그때 문제를 해결하면서 작성하도록 하자.
+
+    \begin{itemize}
+        \item lshort-ko -- 역사와 전통의 \latex 입문서이다.
+        \item 권현우 교수님의 강의 -- 유튜브에서 무료로 볼 수 있다.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[c]
+
+    \begin{center}
+        {\Huge Thank you for listening!}
+    \end{center}
 
 \end{frame}
 
