@@ -1,0 +1,91 @@
+\input{preamble.tex}
+
+\title{How To \latex{} \\ \normalsize \textnormal{2강 -- 수식, 그림 그리고 표}}
+\author{201811206 황인탁}
+
+\begin{document}
+\maketitle
+
+\begin{frame}[fragile]
+    \frametitle{그림 넣기}
+
+    그림 넣기는 별로 어렵지 않다. 아마도.
+
+    먼저 graphicx 패키지를 임포트한다:
+    \begin{minted}{latex}
+        \usepackage{graphicx}
+    \end{minted}
+
+    그 다음, \mintinline{latex}{\includegraphics}과 figure 환경을 이용한다.
+    \begin{minted}{latex}
+        \begin{figure}
+            \includegraphics{/path/to/image.jpg}
+        \end{figure}
+    \end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{그림 넣기 Tips \& Tricks}
+
+    문서 가운데에 그림을 넣고 싶다면 \mintinline{latex}{\centering} 명령어를 이용한다.
+    \begin{minted}{latex}
+        \begin{figure}
+            \centering
+            \includegraphics{/path/to/image.jpg}
+        \end{figure}
+    \end{minted}
+
+    이미지의 크기를 조절하려면 \mintinline{latex}{width, height} 옵션을 이용한다.
+    \begin{minted}{latex}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.5\textwidth]{/path/to/image.jpg}
+        \end{figure}
+    \end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{그림 넣기 Tips \& Tricks}
+
+    그림의 위치는 \mintinline{latex}{figure}의 옵션으로 줄 수 있다. \mintinline{latex}{t}는 top, \mintinline{latex}{b}는 bottom, \mintinline{latex}{p}는 별도의 페이지.
+    \begin{minted}{latex}
+        \begin{figure}[t]
+            \centering
+            \includegraphics[width=0.5\textwidth]{/path/to/image.jpg}
+        \end{figure}
+    \end{minted}
+
+    묻지도 따지지도 않고 무조건 원하는 위치에 넣고 싶다면? \mintinline{latex}{float} 패키지의 \mintinline{latex}{H} 옵션을 쓰자.
+    \begin{minted}{latex}
+        \usepackage{float}
+        ...
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{/path/to/image.jpg}
+        \end{figure}
+    \end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{그림 넣기 Tips \& Tricks}
+
+    캡션과 라벨링도 간단하다.
+    \begin{minted}{latex}
+        \usepackage{caption}
+        ...
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.5\textwidth]{/path/to/image.jpg}
+            \caption{caption}
+            % \caption*{caption wo numbering}
+            \label{fig:fig1}
+        \end{figure}
+    \end{minted}
+    라벨을 쓸 때는 \mintinline{latex}{\ref{fig:fig1}} 형식으로 쓴다.
+
+\end{frame}
+
+\end{document}
