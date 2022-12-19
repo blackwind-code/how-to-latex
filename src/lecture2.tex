@@ -80,12 +80,100 @@
             \centering
             \includegraphics[width=0.5\textwidth]{/path/to/image.jpg}
             \caption{caption}
-            % \caption*{caption wo numbering}
+            % \caption*{caption without numbering}
             \label{fig:fig1}
         \end{figure}
     \end{minted}
     라벨을 쓸 때는 \mintinline{latex}{\ref{fig:fig1}} 형식으로 쓴다.
 
 \end{frame}
+
+\begin{frame}
+    \frametitle{Example}
+
+    다음 그림을 보시오: Figure~\ref{fig:heeman}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.3\textwidth]{heeman.jpg}
+        \caption{HEEYAYAYAYAYYAA}
+        \label{fig:heeman}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{표 넣기}
+
+    표는 훨씬 더 어렵다. 사실, 표를 웬만하면 쓰지 않는 것이 최선이다.
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{표 넣기}
+
+    그럼에도 불구하고 표가 필요하다면, \mintinline{latex}{tabularray} 패키지가 최선이다.
+
+    \begin{minted}{latex}
+        \usepackage{tabularray}
+    \end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{표 넣기}
+
+    \mintinline{latex}{c, l, r} 옵션을 통해 각 셀의 정렬을 조절할 수 있다.
+
+    \begin{columns}[c]
+        \begin{column}{0.4\textwidth}
+            \begin{minted}{latex}
+                \begin{tblr}{cc}
+                    1 & 2 \\
+                    3 & 4
+                \end{tblr}
+            \end{minted}
+        \end{column}
+
+        \hspace{0.2\textwidth}
+
+        \begin{column}{0.4\textwidth}
+            \begin{tblr}{cc}
+                1 & 2 \\
+                3 & 4
+            \end{tblr}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{표 넣기}
+
+    \mintinline{latex}{|, \hline}을 통해 가로줄, 세로줄을 넣을 수 있다.
+
+    \begin{columns}[c]
+        \begin{column}{0.4\textwidth}
+            \begin{minted}{latex}
+                \begin{tblr}{|c|c}
+                    1 & 2 \\ \hline
+                    3 & 4
+                \end{tblr}
+            \end{minted}
+        \end{column}
+
+        \hspace{0.2\textwidth}
+
+        \begin{column}{0.4\textwidth}
+            \begin{tblr}{|c|c}
+                1 & 2 \\ \hline
+                3 & 4
+            \end{tblr}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+
 
 \end{document}
