@@ -197,18 +197,8 @@
     문단을 나눌 때는 반드시 한 줄을 비워놓는다. 화이트스페이스와 마찬가지로, 여러 줄을 비워놓아도 한 줄을 비운 것으로 인식한다.
 
     \begin{columns}[c]
-        \begin{column}{0.4\textwidth}
-            \begin{minted}[autogobble, showspaces]{latex}
-                So,  so you think
-                you can   tell
-
-                Heaven  from hell?
-
-
-                Blue skies from  pain?
-            \end{minted}
-        \end{column}
-        \begin{column}{0.4\textwidth}
+        \column{0.4\textwidth}
+        \begin{minted}[autogobble, showspaces]{latex}
             So,  so you think
             you can   tell
 
@@ -216,7 +206,16 @@
 
 
             Blue skies from  pain?
-        \end{column}
+        \end{minted}
+
+        \column{0.4\textwidth}
+        So,  so you think
+        you can   tell
+
+        Heaven  from hell?
+
+
+        Blue skies from  pain?
     \end{columns}
 
 \end{frame}
@@ -360,20 +359,8 @@
 
 
     \begin{columns}[c]
-        \begin{column}{0.4\textwidth}
-            \begin{minted}[autogobble]{latex}
-                \begin{flushleft}
-                    left aligned
-                \end{flushleft}
-                \begin{center}
-                    center aligned
-                \end{center}
-                \begin{flushright}
-                    right aligned
-                \end{flushright}
-            \end{minted}
-        \end{column}
-        \begin{column}{0.4\textwidth}
+        \column{0.4\textwidth}
+        \begin{minted}[autogobble]{latex}
             \begin{flushleft}
                 left aligned
             \end{flushleft}
@@ -383,7 +370,18 @@
             \begin{flushright}
                 right aligned
             \end{flushright}
-        \end{column}
+        \end{minted}
+
+        \column{0.4\textwidth}
+        \begin{flushleft}
+            left aligned
+        \end{flushleft}
+        \begin{center}
+            center aligned
+        \end{center}
+        \begin{flushright}
+            right aligned
+        \end{flushright}
     \end{columns}
 
 \end{frame}
@@ -394,46 +392,44 @@
     글을 나열하는 방법으로는 \mintinline{text}{itemize, enumerate, description} 환경이 있다.
 
     \begin{columns}
-        \begin{column}{0.3\textwidth}
-            \begin{minted}[autogobble]{latex}
-                \begin{itemize}
-                    \item a
-                    \item b
-                \end{itemize}
-            \end{minted}
-
+        \column{0.3\textwidth}
+        \begin{minted}[autogobble]{latex}
             \begin{itemize}
                 \item a
                 \item b
             \end{itemize}
-        \end{column}
-        \begin{column}{0.3\textwidth}
-            \begin{minted}[autogobble]{latex}
-                \begin{enumerate}
-                    \item a
-                    \item b
-                \end{enumerate}
-            \end{minted}
+        \end{minted}
 
+        \begin{itemize}
+            \item a
+            \item b
+        \end{itemize}
+
+        \column{0.3\textwidth}
+        \begin{minted}[autogobble]{latex}
             \begin{enumerate}
                 \item a
                 \item b
             \end{enumerate}
-        \end{column}
+        \end{minted}
 
-        \begin{column}{0.3\textwidth}
-            \begin{minted}[autogobble]{latex}
-                \begin{description}
-                    \item[k1] a
-                    \item[k2] b
-                \end{description}
-            \end{minted}
+        \begin{enumerate}
+            \item a
+            \item b
+        \end{enumerate}
 
+        \column{0.3\textwidth}
+        \begin{minted}[autogobble]{latex}
             \begin{description}
                 \item[k1] a
                 \item[k2] b
             \end{description}
-        \end{column}
+        \end{minted}
+
+        \begin{description}
+            \item[k1] a
+            \item[k2] b
+        \end{description}
     \end{columns}
 
 \end{frame}

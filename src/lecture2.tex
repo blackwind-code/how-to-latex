@@ -93,7 +93,7 @@
 
     다음 그림을 보시오: Figure~\ref{fig:heeman}
 
-    \begin{figure}[H]
+    \begin{figure}
         \centering
         \includegraphics[width=0.3\textwidth]{heeman.jpg}
         \caption{HEEYAYAYAYAYYAA}
@@ -126,23 +126,19 @@
     \mintinline{latex}{c, l, r} 옵션을 통해 각 셀의 정렬을 조절할 수 있다.
 
     \begin{columns}[c]
-        \begin{column}{0.4\textwidth}
-            \begin{minted}{latex}
-                \begin{tblr}{cc}
-                    1 & 2 \\
-                    3 & 4
-                \end{tblr}
-            \end{minted}
-        \end{column}
-
-        \hspace{0.2\textwidth}
-
-        \begin{column}{0.4\textwidth}
+        \column{0.6\textwidth}
+        \begin{minted}{latex}
             \begin{tblr}{cc}
                 1 & 2 \\
                 3 & 4
             \end{tblr}
-        \end{column}
+        \end{minted}
+
+        \column{0.4\textwidth}
+        \begin{tblr}{cc}
+            1 & 2 \\
+            3 & 4
+        \end{tblr}
     \end{columns}
 
 \end{frame}
@@ -153,27 +149,89 @@
     \mintinline{latex}{|, \hline}을 통해 가로줄, 세로줄을 넣을 수 있다.
 
     \begin{columns}[c]
-        \begin{column}{0.4\textwidth}
-            \begin{minted}{latex}
-                \begin{tblr}{|c|c}
-                    1 & 2 \\ \hline
-                    3 & 4
-                \end{tblr}
-            \end{minted}
-        \end{column}
-
-        \hspace{0.2\textwidth}
-
-        \begin{column}{0.4\textwidth}
+        \column{0.6\textwidth}
+        \begin{minted}{latex}
             \begin{tblr}{|c|c}
                 1 & 2 \\ \hline
                 3 & 4
             \end{tblr}
-        \end{column}
+        \end{minted}
+
+        \column{0.4\textwidth}
+        \begin{tblr}{|c|c}
+            1 & 2 \\ \hline
+            3 & 4
+        \end{tblr}
     \end{columns}
 
 \end{frame}
 
+\begin{frame}[fragile]
+    \frametitle{표 넣기}
 
+    물론, 더 다양한 옵션을 줄 수도 있다. 다음을 보자.
+
+    \begin{columns}[c]
+        \hspace{-0.2\textwidth}
+        \column{0.7\textwidth}
+        \begin{minted}{latex}
+            \begin{tblr}{
+                colspec={X[2,l]cr},
+                rowspec={X[2,t]Q[red,m]b},
+                vlines
+                }
+                Alpha & Beta    & Gamma         \\
+                Delta & Epsilon & Zeta          \\
+                Eta   & Theta   & {Iota\\Iota}  \\
+            \end{tblr}
+        \end{minted}
+        \column{0.4\textwidth}
+        \begin{tblr}{
+            colspec={X[2,l]Q[c]Q[r]},
+            rowspec={X[2,t]Q[red,m]Q[b]},
+            vlines
+            }
+            Alpha & Beta    & Gamma \\
+            Delta & Epsilon & Zeta  \\
+            Eta   & Theta   & {Iota \\Iota}  \\
+        \end{tblr}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{표 넣기}
+
+    \mintinline{latex}{\SetCell}을 통해서 여러 셀을 합칠 수 있다.
+
+    \begin{columns}[c]
+        \hspace{-0.2\textwidth}
+        \column{0.8\textwidth}
+        \begin{minted}{latex}
+            \begin{tblr}{colspec={ccc}, vlines, hlines}
+                \SetCell[r=2,c=2]{l, m} 1 &  & 2 \\
+                                          &  & 3
+        \end{minted}
+
+        \column{0.2\textwidth}
+        \begin{tblr}{colspec={ccc}, vlines, hlines}
+            \SetCell[r=2,c=2]{l, m} 1 &  & 2 \\
+                                      &  & 3
+        \end{tblr}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{표 넣기}
+
+    이외에도 수많은 옵션이 있으니, \mintinline{latex}{tabularray}의 도큐먼테이션을 확인해보길 바란다.
+
+    \begin{figure}
+        \centering
+        \includegraphics[height=0.7\textheight]{noexplanation.jpg}
+    \end{figure}
+
+\end{frame}
 
 \end{document}
