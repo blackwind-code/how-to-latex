@@ -276,9 +276,32 @@
 
 \end{frame}
 
+\begin{frame}[fragile]
+    \frametitle{수식 넣기}
+
+    수식과 관련된 내용은 전부 다룰 수도 없고 아주 지루하다. 여기서는 몇 가지 팁을 제공하기로 한다.
+
+\end{frame}
 
 \begin{frame}[fragile]
     \frametitle{수식 넣기}
+
+    시작하기 전에, 다음의 네 패키지는 무조건 사용하는 것이 좋다.
+
+    \begin{description}
+        \item[amsmath] AMS(미국 수학회)에서 제공하는 수학 관련 패키지이다.
+        \item[amsthm] 정리(Theorem) 스타일을 사용할 수 있게 해준다.
+        \item[amssymb] 기본으로 들어있지 않은 기호들을 포함한다.
+        \item[mathtools] amsmath의 여러 기능들을 확장한다.
+    \end{description}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+    \frametitle{수식 넣기 FAQ}
+
+    Q: 여러 줄 수식 어떻게 넣어요? \\
 
     여러 줄 수식은 \mintinline{latex}{align, align*} 환경을 이용하자. 별표가 붙으면 수식 번호를 매기지 않는다.
 
@@ -292,6 +315,58 @@
         (a+b)^2 & = (a+b)(a+b)      \\
                 & = a^2 + 2ab + b^2
     \end{align}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{수식 넣기 FAQ}
+
+    Q: 간지나는 수학 폰트를 쓰고 싶어요 \\
+
+    수식에서는 다음과 같은 폰트를 쓸 수 있다.
+    \begin{center}
+        \begin{tblr}{lr}
+            \mintinline{tex}{\mathbb{Q}}   & $\mathbb{Q}$   \\ \hline
+            \mintinline{tex}{\mathcal{Q}}  & $\mathcal{Q}$  \\ \hline
+            \mintinline{tex}{\mathbf{Q}}   & $\mathbf{Q}$   \\ \hline
+            \mintinline{tex}{\mathfrak{Q}} & $\mathfrak{Q}$ \\
+        \end{tblr}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{수식 넣기 FAQ}
+
+    Q: 괄호가 너무 작아서 못생겼어요 ㅠㅠ 밑에 좀 봐봐요
+    \[ (\frac{a}{b}) \]
+    \\
+
+    괄호의 크기는 보통 \mintinline{tex}{\left, \right}를 사용하여 맞춘다.
+
+    \mintinline{tex}{\[ \left(\frac{a}{b}\right) \]}
+    \[ \left(\frac{a}{b}\right) \]
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{수식 넣기 FAQ}
+
+    Q: $\sin$같은 거 직접은 못 만드나요? $Prob(X)$ 처럼 기울어져서 보기싫어요 \\
+
+    \mintinline{tex}{\operatorname} 명령어를 사용하거나, amsmath의 \mintinline{tex}{\DeclareMathOperator}를 사용한다.
+
+    \begin{minted}{tex}
+        \DeclareMathOperator{\prob}{Prob}
+
+        \[ \prob(X) \]
+        % or
+        \[ \operatorname{Prob}(X) \]
+    \end{minted}
+\end{frame}
+
+\begin{frame}
+    \frametitle{수식 연습}
+
+    다음을 조판해보자. (구글 검색 허용) \\
 
 \end{frame}
 

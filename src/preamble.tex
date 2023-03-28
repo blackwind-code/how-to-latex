@@ -7,7 +7,7 @@
     BoldFont=* Bold,
     Expansion,
 ]
-\setsanshangulfont{Noto Sans CJK KR}[
+\setsansfont{Noto Sans CJK KR}[
     Scale=0.98,
     AutoFakeSlant,
     Script=Hangul,
@@ -23,6 +23,7 @@
     BoldFont=* Bold,
     Expansion,
 ]
+\setmonofont{IBM Plex Mono}[Scale=0.98]
 \hangulpunctuations=0
 
 \usepackage{setspace}
@@ -31,7 +32,7 @@
 \usepackage{tabularray}
 
 \usepackage{minted}
-\setminted{autogobble}
+\setminted{autogobble, breaklines, breakanywhere}
 
 \newcommand{\latex}{\textrm{\LaTeX{}}}
 \newcommand{\tex}{\textrm{\TeX{}}}

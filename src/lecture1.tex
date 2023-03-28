@@ -82,32 +82,13 @@
         \centering
         \subfloat{
             \begin{tikzpicture}[scale=0.7]
-                \tkzDefPoint(0,1){A}
-                \tkzDefPoint(7,0){B}
-                \tkzDefPoint(5,4){C}
-                \tkzDrawPolygon(A,B,C)
-
-                \tkzDefCircle[in](A,B,C)
-                \tkzGetPoint{O}
-                \tkzGetLength{rIN}
-                \tkzDefCircle[R](O, \rIN)
-                \tkzGetPoint{a}
-                \tkzDrawCircle(O, a)
-
-                \tkzDefPoint(5.1, 1.8){P}
-                \tkzDrawSegments(P,A P,B P,C)
-
-                \tkzDefPointBy[projection=onto A--B](P)
-                \tkzGetPoint{H}
-                \tkzDrawSegment[dashed](P,H)
-
-                \tkzLabelSegment[above left](A,C){$a_1$}
-                \tkzLabelSegment[below](A,B){$a_2$}
-                \tkzLabelSegment[right](B,C){$a_3$}
-
-                \tkzMarkRightAngle(P,H,A)
-                \tkzDrawPoints(A, B, C, P, H)
-                \tkzLabelSegment[left](P,H){$h_k$}
+                \tkzDefPoints{0/0/A,10/0/B}
+                \tkzDefGoldenRatio(A,B) \tkzGetPoint{C}
+                \tkzDefMidPoint(A,B) \tkzGetPoint{O_1}
+                \tkzDefMidPoint(A,C) \tkzGetPoint{O_2}
+                \tkzDefMidPoint(C,B) \tkzGetPoint{O_3}
+                \tkzDrawSemiCircles[fill=purple!15](O_1,B)
+                \tkzDrawSemiCircles[fill=teal!15](O_2,C O_3,B)
             \end{tikzpicture}
         }
         \qquad
@@ -185,7 +166,7 @@
 \begin{frame}
 \frametitle{preamble}
 
-\mintinline{latex}{\begin{document}} 이전까지의 부분은 \textbf{preamble}이라고 부른다.preamble에는 보통 다음의 명령어들이 온다.
+\mintinline{latex}{\begin{document}} 이전까지의 부분은 \textbf{preamble}이라고 부른다. preamble에는 보통 다음의 명령어들이 온다.
 
 \begin{itemize}
     \item \mintinline{latex}{\documentclass}: 이 문서의 클래스를 결정한다. 클래스에 따라서 문서의 모양과 형식이 달라진다. 유명한 클래스로는 article, book, beamer, 그리고 앞으로 사용할 oblivoir 등이 있다.
